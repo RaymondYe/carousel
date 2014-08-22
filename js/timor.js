@@ -81,17 +81,23 @@ function(exports) {
 
       touch.on(this.sec, 'dragstart', function(ev) {
         ev.originEvent.preventDefault()
-        _this.onDragStart(ev);
+        if (_this.isEvent) {
+          _this.onDragStart(ev);
+        }
       })
 
       touch.on(this.sec, 'drag', function(ev) {
         ev.originEvent.preventDefault()
-        _this.onDrag(ev)
+        if (_this.isEvent) {
+          _this.onDrag(ev)
+        }
       })
 
       touch.on(this.sec, 'dragend', function(ev) {
         ev.originEvent.preventDefault()
-        _this.onDragEnd(ev);
+        if (_this.isEvent) {
+          _this.onDragEnd(ev);
+        }
       })
 
       if (DEBUG) debugger;
@@ -118,20 +124,17 @@ function(exports) {
     onDragEnd: function(ev) {
 
       var _this = this
-      if (this.moveSec === null) {
-        return;
-      } else {
 
+      if (this.moveSec !== null) {
         var se = this.sec[this.pageIndex],
           mv = this.moveSec
-
+        this.moveSec = null
         this.isEvent = false;
         this.pageIndex = this.moveIndex
 
         mv.classList.remove('hide')
         mv.classList.add('show')
-        mv.style.webkitTransition = this.speed + 'ms'
-        mv.style.webkitTransform = 'translate3d( 0, 0, 0 )'
+        mv.style.cssText = '-webkit-transition:' + this.speed + 'ms; -webkit-transform:matrix( 0, 0, 0, 0, 0 );'
 
         setTimeout(function() {
 
@@ -149,19 +152,22 @@ function(exports) {
 
       var moveY;
 
-      if (this.moveSec === null) return;
+      if (this.moveSec !== null) {
+        var moveY = (this.direction === 1) ? this._Height + ev.y : -this._Height + ev.y,
+          mv = this.moveSec;
 
-      var moveY = (this.direction === 1) ? this._Height + ev.y : -this._Height + ev.y
+        if (this.direction === 1) {
+          moveY = moveY <= 0 ? 0 : moveY
+          mv.style.webkitTransform = 'translate3d(0, ' + moveY + 'px,0)'
+          this.sec[this.pageIndex].style.cssText = " -webkit-transition:200ms; -webkit-transform:matrix(.9, 0, 0, .8, 0, 0); -webkit-transform-origin: top center;";
+        } else {
+          moveY = moveY >= 0 ? 0 : moveY
+          mv.style.webkitTransform = 'translate3d(0, ' + moveY + 'px,0)'
+          this.sec[this.pageIndex].style.cssText = " -webkit-transition:200ms; -webkit-transform:matrix(.9, 0, 0, .8, 0, 0); -webkit-transform-origin: bottom center;";
+        }
 
-      if (this.direction === 1) {
-        moveY = moveY <= 0 ? 0 : moveY
-        this.moveSec.style.webkitTransform = 'translate3d(0, ' + moveY + 'px,0)'
-      } else {
-        moveY = moveY >= 0 ? 0 : moveY
-        this.moveSec.style.webkitTransform = 'translate3d(0, ' + moveY + 'px,0)'
+        mv.classList.add('active')
       }
-
-      this.moveSec.classList.add('active')
 
     },
 

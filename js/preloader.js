@@ -1,42 +1,38 @@
-"use strict";
-;(function(win, doc, $) {
+"use strict";;
+(function(win, doc) {
   var preloader = {
-    disable: undefined,
-    start: undefined,
     init: function() {},
     onLoad: function() {},
     id: undefined,
-    visuals: undefined,
-    targetLogoWidth: 0
   }
 
   var loaderClass = 'loadBackground'
 
   preloader.init = function() {
-    var _this = this
-    this.imgArr = ['./img/bg1.jpg', './img/bg2.jpg', './img/bg3.jpg', './img/bg4.jpg', './img/bg5.jpg']
-    preloader.id = $('#preloader');
+    var _this = this,
+      body = document.getElementsByTagName('body')[0],
+      pre = document.createElement('div');
+    pre.id = 'preloader'
+    pre.style.cssText = 'height: 100%; display: block; position: fixed; top: 0; width: 100%; background: #333; z-index: 100;'
+    pre.innerHTML = '<div class="load-container load2"><div class="loader">Loading...</div></div>'
+    body.appendChild(pre)
 
-    preloader.targetLogoWidth = $(window).innerWidth()
+    this.imgArr = ['./img/bg1.jpg', './img/bg2.jpg', './img/bg3.jpg', './img/bg4.jpg', './img/bg5.jpg']
+
+    this.id = document.getElementById('preloader')
+    this.id.style.display = 'block'
 
     _PreLoadImg(_this.imgArr, function() {
       _this.remove()
     })
-  }
 
-  preloader.start = function() {
-    this.init()
-    this.id.show()
   }
 
   preloader.remove = function() {
-    $(document.body).removeClass('unloaded')
-    this.id.remove()
+    var body = document.getElementsByTagName('body')[0],
+      pre = document.getElementById('preloader');
+    body.removeChild(pre)
   }
-
-  $(function() {
-    preloader.start()
-  });
 
   /*
     {"name": "PreLoadImg",
@@ -62,4 +58,4 @@
       a[src].src = b[src]
     }
   }
-})(window, document, jQuery);
+})(window, document);
