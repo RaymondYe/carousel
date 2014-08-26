@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+  require('load-grunt-tasks')(grunt);
   var mozjpeg = require('imagemin-mozjpeg');
   // initConfig
   grunt.initConfig({
@@ -49,18 +50,20 @@ module.exports = function(grunt) {
           dest: 'dist/' // Destination path prefix
         }]
       }
+    },
+    stylus:{
+      compile:{
+        files:{
+          'css/index.css':'stylus/index.styl'
+        }
+      }
     }
   });
-
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-
 
   grunt.registerTask('default', ['watch']);
   grunt.registerTask('minjs', ['uglify']);
   grunt.registerTask('min', ['cssmin']);
+  grunt.registerTask('styl', ['stylus']);
   grunt.registerTask('minimg', ['imagemin']);
 
 };

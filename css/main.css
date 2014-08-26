@@ -1,9 +1,10 @@
 /* Timor Plugin Style */
-html, body { height: 100%; overflow: hidden; max-width: 640px; margin: 0 auto; display: block; overflow-y: auto; width: 100%; -webkit-touch-callout: none; touch-callout: none; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+html, body { height: 100%; overflow: hidden; max-width: 640px; margin: 0 auto; display: block; width: 100%; -webkit-touch-callout: none; touch-callout: none; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+body { background: rgba(0, 0, 0, .7); }
 
-body{ background: rgba(0,0,0,.7);}
-#lun { height: 100%; display: block; overflow: hidden; width: 100%; position: relative; }
-.m-page { position: absolute; left: 0; top: 0; height: 100%; width: 100%; overflow: hidden; text-align: center; transform: translate3d(0, 0, 0); -webkit-transform: translate3d(0, 0, 0); }
+#lun, .m-page{ height: 100%; width: 100%; overflow: hidden;}
+#lun { display: block; position: relative; }
+.m-page { position: absolute; left: 0; top: 0;  text-align: center; transform: translate3d(0, 0, 0); -webkit-transform: translate3d(0, 0, 0); }
 .m-page.show { z-index: 10; display: block !important; }
 .m-page.hide { z-index: 5; display: none !important; }
 .m-page.active { z-index: 15; display: block !important; }
@@ -12,6 +13,10 @@ body{ background: rgba(0,0,0,.7);}
 .m-page:nth-child(3) { background: #26453D }
 .m-page:nth-child(4) { background: #43341B }
 .m-page:nth-child(5) { background: #2EA9DF }
+/* Music Style */
+.btn-music { display: none; background: url(../img/music.png) no-repeat; width: 30px; height: 30px; position: fixed; top: 15px; right: 15px; z-index: 25; background-size: 30px auto;}
+.btn-musiced{ -webkit-animation: load2 2s infinite linear; animation: load2 2s infinite linear; }
+
 /* Preloader Plungin Style */
 .load-container { position: relative; top: 50%; overflow: hidden; -moz-box-sizing: border-box; box-sizing: border-box; transform: translate3d(0, -50%, 0); -webkit-transform: translate3d(0, -50%, 0); }
 .load2 .loader, .load2 .loader:before, .load2 .loader:after { border-radius: 50%; }

@@ -1,6 +1,6 @@
 {
   "name": "Raymond",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -15,6 +15,7 @@
     "grunt-bower-install": "~1.4.0",
     "grunt-contrib-imagemin": "~0.7.1",
     "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-stylus": "~0.18.0",
     "grunt-rev": "~0.1.0",
     "grunt-autoprefixer": "~0.7.2",
     "grunt-usemin": "~2.1.0",
