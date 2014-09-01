@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>云教学OFFICE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <meta name="apple-touch-fullscreen" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes"  />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+  <meta name="format-detection" content="telephone=no , email = no"  />
+  <meta name="Keywords" content="Raymond">
+  <meta name="Description" content="Raymond">
+  <meta name="author" content="RaymondYip">
+  <link rel="dns-prefetch" href="http://i.weclouds.cn/tests/raymond/qy">
+  <style>
+  /* Preloader Plungin Style */
+  html, body { height: 100%; overflow: hidden; max-width: 640px; margin: 0 auto; display: block; width: 100%; -webkit-touch-callout: none; touch-callout: none; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  body { background: rgba(0, 0, 0, .7); }
+
+  .load { position: absolute; width: 100%; top: 50%; left: 0; right: 0; margin: auto; transform: translate3d(0,-50%,0);}
+  .load-xy {-webkit-animation: k-shanshan 1.9s linear 0s infinite; display: block; margin: 0 auto 15px;}
+  .load-word { display: block; margin: auto; }
+  @-webkit-keyframes k-shanshan {
+  0% { - webkit-transform: scale(1); opacity: 0.3 }
+  50% { -webkit-transform: scale(1); opacity: 1 }
+  100% { -webkit-transform: scale(1); opacity: 0.3 }
+  }
+  </style>
+  <!-- build:css(.tmp) css/app.css -->
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/page.css">
+  <!-- endbuild -->
+  <!-- build:js js/preload.js-->
+  <script src="./js/preloader.js"></script>
+  <!-- endbuild -->
+</head>
+<body class="unloaded">
+
+  <div id="lun">
+    <section class="m-page hide page1"></section>
+    <section class="m-page hide page2">
+      <div class="main">
+        <div class="group2">
+          <img src="./img/blank.gif" data-echo="./img/p-2.png" class="people2 animated" alt="people"/>
+          <img src="./img/blank.gif" data-echo="./img/l-2.png" class="left2 animated" alt="left"/>
+          <img src="./img/blank.gif" data-echo="./img/r-2.png" class="right2 animated" alt="right"/>
+        </div>
+      </div>
+    </section>
+    <section class="m-page hide page3">
+      <div class="main">
+        <img src="./img/blank.gif" data-echo="./img/title-3.jpg" alt="title" class="title3">
+        <img src="./img/blank.gif" data-echo="./img/text-3.png" alt="text" class="text3 animated"></div>
+    </section>
+    <section class="m-page hide page4">
+      <div class="main">
+        <img src="./img/blank.gif" data-echo="./img/p-4.png" alt="people" class="people4 animated"></div>
+    </section>
+    <section class="m-page hide page5">
+      <div class="main">
+        <img src="./img/blank.gif" data-echo="./img/title-5.jpg" alt="title" class="title5">
+        <img src="./img/blank.gif" data-echo="./img/text-5.png" alt="text" class="text5 animated"></div>
+    </section>
+    <section class="m-page hide page6">
+      <div class="main">
+        <div class="group6">
+          <img src="./img/blank.gif" data-echo="./img/people-6.png" alt="people" class="people6 animated"/>
+          <img src="./img/blank.gif" data-echo="./img/left-6.png" alt="left" class="left6 animated"/>
+        </div>
+      </div>
+    </section>
+    <section class="m-page hide page7">
+      <div class="main">
+        <img src="./img/blank.gif" data-echo="./img/title-7.jpg" alt="title" class="title7">
+        <img src="./img/blank.gif" data-echo="./img/text-7.png" alt="text" class="text7 animated"></div>
+    </section>
+    <section class="m-page hide page9">
+      <div class="main">
+        <img src="./img/blank.gif" data-echo="./img/share.png" alt="share" class="share">
+        <div class="group9">
+          <img src="./img/blank.gif" data-echo="./img/bg-9.png" alt="bg" class="bg-9"/>
+          <div class="text-group">
+            <img src="./img/blank.gif" data-echo="./img/text-9-1.png" alt="text" class="text9-1 animated"/>
+            <img src="./img/blank.gif" data-echo="./img/text-9-2.png" alt="text" class="text9-2 animated"/>
+            <img src="./img/blank.gif" data-echo="./img/text-9-3.png" alt="text" class="text9-3 animated"/>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="m-page hide page8">
+      <div class="main">
+        <div class="group8">
+          <img src="./img/blank.gif" data-echo="./img/bg-8.jpg" alt="bg-8" class="bg8">
+          <a href="http://study.163.com/u/qiuyeppt#/center/lectorCenterCourse?status=1">
+            <img src="./img/blank.gif" data-echo="./img/btn-dan.png" alt="dan" class="btn-dan"></a>
+          <img src="./img/blank.gif" data-echo="./img/zhi.png" alt="zhi" class="zhi"></div>
+          <div class="logo"></div>
+      </div>
+    </section>
+  </div>
+  <!-- /#lun -->
+
+  <div class="btn-music" id="music"></div>
+  <!-- /.btn-music-->
+
+  <div class="btn-bottom" id="bottom"></div>
+  <!-- /.bottom-icon-->
+
+  <audio loop="loop" preload="none" src="./src/music.mp3"></audio>
+  <!-- /audio-->
+
+  <!-- Plugin -->
+  <!-- build:js js/plugin.js-->
+  <script src="./js/lib/touch.js"></script>
+  <script src="./js/lib/weixin.js"></script>
+  <script src="./js/lib/echo.js"></script>
+  <!-- endbuild -->
+  <!-- build:js js/app.js-->
+  <script src="./js/timor.js"></script>
+  <script src="./js/erase.js"></script>
+  <script src="./js/main.js"></script>
+  <!-- endbuild -->
+</body>
+</html>
