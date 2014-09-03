@@ -49,18 +49,18 @@ window.addEventListener('load', function() {
   });
 
   var collect_first = true;
-  if (collect_first) {
-    collect_first = false;
+  // if (collect_first) {
+  //   collect_first = false;
 
-    ajax({
-      type: "post",
-      url: "http://i.weclouds.cn/versino/football/server/footballcontroller.php",
-      data: "action=post_click&page=qiuye",
-      dataType: "json",
-      success: function(data) {}
-    });
+  //   ajax({
+  //     type: "post",
+  //     url: "http://i.weclouds.cn/versino/football/server/footballcontroller.php",
+  //     data: "action=post_click&page=qiuye",
+  //     dataType: "json",
+  //     success: function(data) {}
+  //   });
 
-  }
+  // }
 }, false)
 
 window.addEventListener('touchstart', one, false)
