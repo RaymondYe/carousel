@@ -5,11 +5,26 @@
 .m-page.show { z-index: 10; display: block !important; }
 .m-page.hide { z-index: 5; display: none !important; }
 .m-page.active { z-index: 15; display: block !important; }
+
+/* Preloader Plungin Style */
+html, body { height: 100%; overflow: hidden; max-width: 640px; margin: 0 auto; display: block; width: 100%; -webkit-touch-callout: none; touch-callout: none; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+body { background: rgba(0, 0, 0, .7); }
+#preloader { height: 100%; display: block; position: fixed; top: 0; width: 100%; background: #000; z-index: 101; }
+.load { position: absolute; width: 100%; top: 50%; left: 0; right: 0; margin: auto; transform: translate3d(0, -50%, 0); }
+.load-xy { display: block; margin: 0 auto 15px; }
+.load-word { display: block; margin: auto; }
+
+/* erase Style */
+canvas { position: fixed; top: 0; left: 0; z-index: 100; right: 0; margin: auto; transition: 2s; -webkit-transition: 2s; }
+
 /* Music Style */
 .btn-music { display: none; background: url(../images/music.png) no-repeat; width: 30px; height: 30px; position: fixed; bottom: 20px; right: 15px; z-index: 25; background-size: 30px auto; }
 .btn-musiced { -webkit-animation: load2 2s infinite linear; animation: load2 2s infinite linear; }
+
 /* Bottom ICon */
 .btn-bottom { background: url(../images/bottom-icon.png) no-repeat center center; width: 41px; height: 17px; position: fixed; bottom: 15px; right: 0; left: 0; margin: auto; z-index: 25; background-size: 30px auto; -webkit-animation: tap .7s infinite linear; animation: tap .7s infinite linear; }
+
+/* animate */
 @-webkit-keyframes tap {
   0% { -webkit-transform: translateY(0); transform: translateY(0); }
   100% { -webkit-transform: translateY(-15px); transform: translateY(-15px); }
@@ -26,5 +41,14 @@
   0% { transform: rotateZ(0deg) }
   100% { transform: rotateZ(-360deg) }
 }
-/* erase Style */
-canvas{ position: fixed; top: 0; left: 0; z-index: 100; right: 0; margin: auto; transition:2s; -webkit-transition:2s;}
+.pulse { animation-name: pulse; -webkit-animation-name: pulse; animation-duration: 1.5s; -webkit-animation-duration: 1.5s; animation-iteration-count: infinite; -webkit-animation-iteration-count: infinite; }
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+@-webkit-keyframes pulse {
+  0% { -webkit-transform: scale(0.95); opacity: 0.7; }
+  50% { -webkit-transform: scale(1); opacity: 1; }
+  100% { -webkit-transform: scale(0.95); opacity: 0.7; }
+}
