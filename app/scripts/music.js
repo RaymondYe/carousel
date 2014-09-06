@@ -1,61 +1,78 @@
 "use strict";
 
-;(function() {
+;(function(exports, undefined) {
 
-  var music = {
+  exports.Raymond = exports.Raymond || {};
+  var ex = exports.Raymond;
+  var Music = ex.Music = function(options) {
+    var p;
+    for (p in options) {
+      this[p] = options[p];
+    }
+  };
+
+  Music.prototype = {
     "loop": null,
     "icon": document.getElementById('music'),
     "src": document.getElementsByTagName('audio')[0],
     "musicBtn": 'btn-musiced',
-    "displayBtn": true,
-    "timer": 43000,
-  }
+    "displayBtn": false,
+    "start": true,
+    "timer": 50000,
+    init: function(args) {
+      for (var p in args) {
+        this[p] = args[p]
+      }
+      var _this = this;
 
-  var musicPlay = function() {
-
-    music.src.play()
-
-    music.loop = setInterval(function() {
-      music.src.pause();
-      music.src.play();
-    }, music.timer)
-
-    if (music.displayBtn) {
-      music.icon.style.cssText = "display:block;"
-      music.icon.classList.add(music.musicBtn)
-
-      music.icon.addEventListener('touchstart', function() {
-        musicController()
+      window.addEventListener('touchstart', function(){
+        if(_this.start){
+          _this.play();
+          _this.start = false;
+        }
       }, false)
-    }
 
-    window.removeEventListener('touchstart', musicPlay, false)
+      if(this.onInit){
+        this.onInit()
+      }
+    },
+    play: function() {
+      var _this = this;
+      _this.src.play()
 
-  };
+      _this.loop = setInterval(function() {
+        _this.src.pause();
+        _this.src.play();
+      }, _this.timer)
 
-  function musicController() {
+      if (_this.displayBtn) {
+        _this.icon.style.cssText += ";display:block;"
+        _this.icon.classList.add(_this.musicBtn)
 
-    if (music.src != undefined) {
-
-      if (music.src.paused || music.src.ended) {
-
-        music.src.play();
-        music.loop = setInterval(function() {
-          music.src.pause();
-          music.src.play();
-        }, music.timer);
-        if (music.displayBtn) music.icon.classList.add(music.musicBtn);
-
-      } else {
-
-        clearInterval(music.loop);
-        music.src.pause();
-        if (music.displayBtn) music.icon.classList.remove(music.musicBtn);
-
+        _this.icon.addEventListener('touchstart', function() {
+          _this.toggle()
+        }, false);
+      }
+      if(this.onPlay){
+        this.onPlay()
+      }
+    },
+    toggle: function() {
+      var _this = this;
+      if (_this.src != undefined) {
+        if (_this.src.paused || _this.src.ended) {
+          _this.src.play();
+          _this.loop = setInterval(function() {
+            _this.src.pause();
+            _this.src.play();
+          }, _this.timer);
+          if (_this.displayBtn) _this.icon.classList.add(_this.musicBtn);
+        } else {
+          clearInterval(_this.loop);
+          _this.src.pause();
+          if (_this.displayBtn) _this.icon.classList.remove(_this.musicBtn);
+        }
       }
     }
-  }
-
-  window.addEventListener('touchstart', musicPlay, false);
-
-})();
+  };
+})(this);

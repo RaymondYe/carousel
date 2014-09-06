@@ -2,6 +2,9 @@
 
 window.addEventListener('DOMContentLoaded', function() {
 
+  var b = document.getElementById('bottom');
+
+  // Init preloader
   preloader.init({
     id: 'preloader',
     beforeImages: ['./images/ca.jpg', './images/bg-1.jpg', './images/bottom-icon.png', './images/music.png'],
@@ -19,7 +22,17 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 window.addEventListener('load', function() {
-  var b = document.getElementById('bottom')
+
+  //Init Music
+  var mu = new Raymond.Music();
+  mu.init({
+    timer: 43000,
+    displayBtn: true,
+    icon: document.getElementById('music'),
+    src: document.getElementsByTagName('audio')[0],
+  });
+
+  // Init timor
   tee.init({
     id: "lun",
     onMoveComplete: function(t) {
@@ -43,5 +56,15 @@ window.addEventListener('load', function() {
     }
   });
 
+  // Share Tips
+  touch.on('#share', 'tap', function() {
+    var mask = document.querySelector('#mask');
+    mask.style.display = 'block'
+  })
+
+  touch.on('#mask', 'tap', function() {
+    var mask = document.querySelector('#mask');
+    mask.style.display = 'none';
+  })
 
 }, false);
